@@ -6,5 +6,5 @@ target_link_libraries(
           project_warnings
           CONAN_PKG::docopt.cpp
           CONAN_PKG::fmt
-          CONAN_PKG::spdlog,
+          CONAN_PKG::spdlog
 		  CONAN_PKG::imgui-sfml)
