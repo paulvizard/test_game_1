@@ -10,6 +10,7 @@
 #include <SFML/System/Clock.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics/CircleShape.hpp>
+#include <SFML/Graphics/RectangleShape.hpp>
 
 int main()//int argc, const char **argv)
 {
@@ -35,6 +36,13 @@ int main()//int argc, const char **argv)
 
   sf::CircleShape shape(400.f);
   shape.setFillColor(sf::Color::Green);
+  sf::RectangleShape rectangleShape(sf::Vector2(50.f, 50.f));;
+
+  sf::VertexArray line(sf::LineStrip, 2);
+  line[0].color = sf::Color::Blue;
+  line[1].color = sf::Color::Blue;
+  line[0].position = sf::Vector2(10.f, 0.f);
+  line[1].position = sf::Vector2(300.f, 300.f);
 
   sf::Clock deltaClock;
   while (window.isOpen()) {
@@ -55,6 +63,9 @@ int main()//int argc, const char **argv)
 
     window.clear();
     window.draw(shape);
+    window.draw(rectangleShape);
+    window.draw(line);
+
     ImGui::SFML::Render(window);
     window.display();
   }
